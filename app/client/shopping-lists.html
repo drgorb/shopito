@@ -1,0 +1,56 @@
+<template name="shoppingLists">
+    {{> header}}
+   <div class="panel panel-default">
+      <div class="panel-heading row">
+         <div class="col-md-3">
+            <h3 class="panel-title">Listes à commissions</h3>
+         </div>
+         <div class="col-md-1 pull-right">
+            <button id="addShoppingList" type="button" class="btn btn-primary btn-sm">Ajouter</button>
+         </div>
+      </div>
+      <div class="panel-body">
+         <div class="list-group">
+             {{#each this}}
+                <div class="list-group-item row">
+                   <div class="col-md-6">
+                       {{#unless updateName}}
+                          <a href="{{pathFor 'shoppingList'}}">
+                             <span class="glyphicon glyphicon-shopping-cart"></span>
+                              {{name}}
+                          </a>
+                          <span class="badge">{{itemCount}}</span>
+                       {{else}}
+                           <div class="row">
+                              <div class="col-md-8">
+                                 <input id="{{_id}}" class="listName form-control" value="{{name}}">
+                              </div>
+                              <div class="col-md-2">
+                                 <button type="button"
+                                         class="btn btn-primary btn-sm pull-right validate-name">
+                                    Valider
+                                 </button>
+                              </div>
+                              <div class="col-md-2">
+                                 <button type="button"
+                                         class="btn btn-primary btn-sm pull-right share-list">
+                                    {{#if shared}}Restreindre{{else}}Partager{{/if}}
+                                 </button>
+                              </div>
+                           </div>
+
+                       {{/unless}}
+                   </div>
+                   <div class="col-md-6">
+                      <button type="button"
+                              class="btn btn-warning btn-sm pull-right delete-list">
+                         Supprimer
+                      </button>
+                   </div>
+                </div>
+             {{/each}}
+         </div>
+      </div>
+   </div>
+
+</template>

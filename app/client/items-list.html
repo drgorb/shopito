@@ -1,0 +1,54 @@
+<template name="itemsList">
+    {{> header}}
+
+   <div class="panel panel-default">
+      <div class="panel-heading row">
+         <div class="col-md-3">
+            <h3 class="panel-title">{{list.name}}</h3>
+         </div>
+         <div class="col-md-1 pull-right">
+            <a href="/" type="button" class="btn btn-primary btn-sm">
+               <span class="glyphicon glyphicon-home"></span>
+            </a>
+         </div>
+      </div>
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-md-7">
+               <div class="list-group">
+                   {{#each list.items}}
+                      <div class="list-group-item">
+                          {{#with itemObject}}
+                             <span class="glyphicon glyphicon-barcode"></span>
+                              {{name}}:  {{../quantity}}
+                          {{/with}}
+                      </div>
+                   {{/each}}
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="list-group">
+                   {{#each items}}
+                      <div class="list-group-item row">
+                         <div class="col-md-6">
+                            <span class="glyphicon glyphicon-barcode"></span>
+                             {{name}}
+                         </div>
+
+                         <div class="btn-group btn-group-xs col-md-6">
+                            <button type="button" class="addItem btn btn-default">
+                               <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            <button type="button" class="removeItem btn btn-default">
+                               <span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                         </div>
+                      </div>
+                   {{/each}}
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</template>
