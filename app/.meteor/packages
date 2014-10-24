@@ -5,11 +5,9 @@
 
 meteor-platform
 bootstrap
-accounts-google
 accounts-password
 underscore
 iron:router
 mizzao:bootstrap-3
 accounts-ui
 cw4gn3r:jquery-event-drag
-
